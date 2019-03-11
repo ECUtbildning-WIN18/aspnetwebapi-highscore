@@ -1,0 +1,31 @@
+﻿@model Highscore.Models.HomeViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Highscores</h1>
+</div>
+
+<ul class="highscore-list">
+   @foreach (var highscore in Model.Highscores)
+   {
+      <li>
+         <div>
+            <span class="title">
+               <a asp-controller="Games" asp-action="Show" asp-route-id="@highscore.Game.Id">@highscore.Game.Title</a>
+            </span>
+            <span class="username">
+               <a asp-controller="Players" asp-action="Show" asp-route-id="@highscore.Player.Id">@highscore.Player.Alias</a>
+            </span>
+            <span class="date">
+               @highscore.Date.ToShortDateString()
+            </span>
+         </div>
+         <div class="points">
+            @highscore.Points
+         </div>
+      </li>
+   }
+</ul>

@@ -1,0 +1,28 @@
+@model Highscore.Models.GameViewModel
+
+<h2>@Model.Title</h2>
+
+<p>@Model.Description</p>
+
+<img src="@Model.ImageUrl" alt="@Model.ImageDescription">
+
+<ul class="highscore-list">
+   @foreach (var highscore in Model.Highscores)
+   {
+      <li>
+         <div>
+            <span class="title">
+               <a asp-controller="Players" asp-action="Show" asp-route-id="@highscore.Player.Id">
+                  @highscore.Player.Alias
+               </a>
+            </span>
+            <span class="date">
+               @highscore.Date.ToShortDateString()
+            </span>
+         </div>
+         <div class="points">
+            @highscore.Points
+         </div>
+      </li>
+   }
+</ul>

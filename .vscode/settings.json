@@ -1,0 +1,11 @@
+{
+   "liveSassCompile.settings.formats": [{
+      "savePath": "/wwwroot/css"
+   }],
+   "liveSassCompile.settings.includeItems": [
+      "Scss/site.scss"
+   ],
+   "emmet.includeLanguages": {
+      "aspnetcorerazor": "html"
+   }    
+}
